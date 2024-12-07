@@ -16,8 +16,7 @@ function u(t)
 end
 
 println("ODE: dy^2/dt^2 + ", a1, "dy/dt + ", a0, " = ",u(t))
-println("y0 = ", round(N.(y0),digits=4))
-println("v0 = ", round(N.(ydot0),digits=4))
+println("Initial Conditions: y0 = ", round(N.(y0),digits=4), ", v0 = ", round(N.(ydot0),digits=4))
 println(" ")
 
 # Laplace transform
@@ -31,6 +30,7 @@ IVP = LHS - U(s)
 # Solve for Y(s)
 Y = solve(IVP, Y)[1]
 Y = Y.apart(s) # Partial fraction decomposition
+println("Laplace transform:")
 println("Y(s) = ",Y(s))
 println(" ")
 
@@ -40,7 +40,7 @@ function yMatrix(tReal)
     sympy.inverse_laplace_transform(Y, s, tReal)
 end
 y = yMatrix(t)[1]
-println("y(t) = ",y(t))
+println("Solution: y(t) = ",y(t))
 
 # # Check solution
 Dy = sympy.diff(y(t), t)[1]
