@@ -46,6 +46,6 @@ D2y = sympy.diff(y(t), t, 2)[1]
 check1 = sympy.simplify(D2y(t) + a1*Dy(t) + a0*y(t))
 println("Check 1: u(t) = ",check1)
 check2 = subs(y(t), t => 0)
-println("Check 2: y(0) = ", round(N.(check2),digits=4))
+println("Check 2: y0 = ", round(N.(check2),digits=4))
 check3 = subs(Dy(t), t => 0)
-println("Check 3: Dy(0) = ", round(N.(check3),digits=4))
+println("Check 3: Dy0 = ", round(N.(check3),digits=4))
