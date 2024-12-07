@@ -1,27 +1,39 @@
+#= #######################################################################
+ Author: Dr. Jeff Rolland
+ Creation Date: 12/06/2024
+ 
+ This Julia program takes a 2nd order, linear, time-independent (LTI) 
+ ordinary differential equation (ODE) dy^2/dt^2 + a1 dy/dt + a0 y = u(t) 
+ with initial conditions y(0) = y0 and v(0) = ydot0, takes the Laplace 
+ transform of the ODE using the initial conditions, performs a partial 
+ fraction decomposition on the Laplace transform, computes the inverse 
+ Laplace transform to solve the ODE, then checks the solution against the 
+ input function u(t), y(0), and v(0).
+####################################################################### =#
+
+# Include modules
 using Symbolics
 using SymPy
 
-# tReal = symbols("tReal", real=true)
+# Define symbolic variables
 t = symbols("t", real=true, positive=true)
 Y = symbols("Y", real=true)
 s = symbols("s", real=true, positive=true)
 
 ###########################################################################
-# Enter parameters and initial conditions #################################
+# Enter parameters, initial conditions, and input function ################
 ###########################################################################
-
-a1 = 4
-a0 = 3
-y0 = 4
-ydot0 = 5
-function u(t)
-    t^2
+a1 = 4                # Coefficient for dy/dt term in ODE (ODE should be "monic": coefficient of d^2y/dt^2 term should be 1)
+a0 = 3                # Coefficient for y term in ODE
+y0 = 4                # Initial position
+ydot0 = 5             # Initial velocity
+function u(t)         # Input function
+    t^2 
 end
 
 ###########################################################################
-# Don't Change Anything Below This Line ###################################
+# You Shouldn't Need to Change Anything Below This Line ###################
 ###########################################################################
-
 println("ODE: dy^2/dt^2 + ", a1, "dy/dt + ", a0, " = ",u(t))
 println("Initial Conditions: y0 = ", round(N.(y0),digits=4), ", v0 = ", round(N.(ydot0),digits=4))
 println(" ")
