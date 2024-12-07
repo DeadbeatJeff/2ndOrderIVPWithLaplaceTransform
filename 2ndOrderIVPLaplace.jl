@@ -6,7 +6,10 @@ t = symbols("t", real=true, positive=true)
 Y = symbols("Y", real=true)
 s = symbols("s", real=true, positive=true)
 
-# Enter parameters and initial conditions
+###########################################################################
+# Enter parameters and initial conditions #################################
+###########################################################################
+
 a1 = 4
 a0 = 3
 y0 = 4
