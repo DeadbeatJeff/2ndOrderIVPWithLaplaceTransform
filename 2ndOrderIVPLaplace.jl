@@ -39,9 +39,9 @@ println("Y(s) = ",Y(s))
 println(" ")
 
 # Inverse Laplace transform
-function yMatrix(tReal)
+function yMatrix(t)
     global s
-    sympy.inverse_laplace_transform(Y, s, tReal)
+    sympy.inverse_laplace_transform(Y, s, t)
 end
 y = yMatrix(t)[1]
 println("Solution: y(t) = ",y(t))
