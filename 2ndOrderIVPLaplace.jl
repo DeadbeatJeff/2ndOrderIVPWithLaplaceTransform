@@ -31,6 +31,8 @@ IVP = LHS - U(s)
 # Solve for Y(s)
 Y = solve(IVP, Y)[1]
 Y = Y.apart(s) # Partial fraction decomposition
+println("Y(s) = ",Y(s))
+println(" ")
 
 # Inverse Laplace transform
 function yMatrix(tReal)
