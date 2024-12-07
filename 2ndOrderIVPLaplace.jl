@@ -6,7 +6,7 @@ t = symbols("t", real=true, positive=true)
 Y = symbols("Y", real=true)
 s = symbols("s", real=true, positive=true)
 
-# Parameters and initial conditions
+# Enter parameters and initial conditions
 a1 = 4
 a0 = 3
 y0 = 4
@@ -14,6 +14,10 @@ ydot0 = 5
 function u(t)
     t^2
 end
+
+###########################################################################
+# Don't Change Anything Below This Line ###################################
+###########################################################################
 
 println("ODE: dy^2/dt^2 + ", a1, "dy/dt + ", a0, " = ",u(t))
 println("Initial Conditions: y0 = ", round(N.(y0),digits=4), ", v0 = ", round(N.(ydot0),digits=4))
