@@ -45,6 +45,7 @@ function yMatrix(tReal)
 end
 y = yMatrix(t)[1]
 println("Solution: y(t) = ",y(t))
+println(" ")
 
 # # Check solution
 Dy = sympy.diff(y(t), t)[1]
