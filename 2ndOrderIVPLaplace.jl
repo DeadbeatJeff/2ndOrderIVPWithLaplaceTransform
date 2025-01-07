@@ -28,7 +28,7 @@ a0 = 3                # Coefficient for y term in ODE
 y0 = 4                # Initial position
 ydot0 = 5             # Initial velocity
 function u(t)         # Input function
-    t^2 
+    10*exp(-t)
 end
 
 ###########################################################################
